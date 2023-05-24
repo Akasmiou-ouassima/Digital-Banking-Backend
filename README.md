@@ -2,7 +2,7 @@
 | --------------------------------------- |
 
 ## Diagramme de cas d'utilisation du projet Digital banking
-![Diagramme de classe digital banking](https://github.com/Akasmiou-ouassima/Digital-Banking-Project/assets/105364446/4bef82b9-e2a3-4806-8091-3ab5218ee56e)
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/Diagramme%20de%20classe%20digital%20banking.jpg">
 
 Le travail à effectuer consiste à développer une application Web basée sur Spring et Angular pour la gestion de comptes bancaires. Voici les différentes tâches à réaliser pour la première partie du projet :
 
@@ -59,10 +59,10 @@ Le travail à effectuer consiste à développer une application Web basée sur S
 
   ## Architecture du projet
 <div>
+   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/architecture2.png" alt="image2"  width="30%">
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/architecture1.jpg" alt="image1" style="margin-top:1px;" width="45%">
   
-  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/assets/105364446/13602251-007b-4b7b-90a2-cad759288f83" alt="image1" width="45%">
-  
-  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/assets/105364446/de2d2959-29be-4ffb-95df-a92f249f9435" alt="image2" width="45%">
 </div>
 
 
