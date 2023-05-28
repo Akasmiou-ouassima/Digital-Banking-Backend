@@ -7,7 +7,6 @@
  
  **Les technologies suivantes seront utilisées dans ce dépôt :**
 - [x] Backend : Spring
-- [x] Frontend : Angular
 - [x] SGBD : MySQL
 
 ## Diagramme de cas d'utilisation du projet Digital banking
@@ -79,7 +78,7 @@
 
 ### Couche DAO
 > **Les entités JPA : Customer, BankAccount, Saving Account, CurrentAccount, AccountOperation**
- _Customer_
+ _**Customer**_
 ```java
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -94,7 +93,7 @@ public class Customer {
     private List<BankAccount> bankAccounts;
 }
 ```
- _BankAccount_
+ _**BankAccount**_
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -114,7 +113,7 @@ public abstract class BankAccount {
 
 }
 ```
-_Saving Account_
+_**Saving Account**_
 ```java
 @Entity
 @DiscriminatorValue("Saving_Account")
@@ -123,7 +122,7 @@ public class SavingAccount extends BankAccount{
     private double interestRate;
 }
 ```
-_CurrentAccount_
+_**CurrentAccount**_
 ```java
 @Entity
 @DiscriminatorValue("Current_Account")
@@ -133,7 +132,7 @@ public class CurrentAccount extends BankAccount{
 
 }
 ```
-_AccountOperation_
+_**AccountOperation**_
 ```java
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -151,7 +150,7 @@ public class AccountOperation {
 }
 ```
 > **les interfaces JPA Repository pour accéder aux données basées sur Spring Data**
-_CustomerRepository_
+_**CustomerRepository**_
 ```java
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
@@ -159,13 +158,13 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> searchCustomer(@Param("kw") String keyword);
 }
 ```
-_BankAccountRepository_
+_**BankAccountRepository**_
 ```java
 public interface BankAccountRepository extends JpaRepository<BankAccount, String> {
     List<BankAccount> getBankAccountByCustomer_Id(Long customerId);
 }
 ```
-_AccountOperationRepository_
+_**AccountOperationRepository**_
 ```java
 public interface AccountOperationRepository extends JpaRepository<AccountOperation, Long> {
 
@@ -240,8 +239,12 @@ spring.main.allow-circular-references=true
 
 
 ### Couche Service
-> **Définir les opérations du service**
-_Interface BankAccountService_
+
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/services.jpg"  />
+
+> **Définition les opérations du service**
+
+_**Interface BankAccountService**_
 ```java
 public interface BankAccountService {
 
@@ -277,5 +280,5 @@ public interface BankAccountService {
   List<CustomerDTO> searchCustomers(String keyword);
 }
 ```
-
+[➤ **Implémentation de la logique métier pour ces opérations** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/services/BankAccountServiceImpl.java)
 
