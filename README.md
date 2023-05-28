@@ -247,7 +247,9 @@ spring.main.allow-circular-references=true
  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/operationsdto.jpg"  width="20%"/>
  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/accountopdto.jpg" />
 </div>
+
 > **Création des mappers**
+
 ```java
 @Service
 @Transactional
@@ -311,6 +313,7 @@ public class BankAccountMapperImpl {
 > **Définition les opérations du service**
 
 _**Interface BankAccountService**_
+
 ```java
 public interface BankAccountService {
 
@@ -350,6 +353,7 @@ public interface BankAccountService {
 >[➤ **Implémentation de la logique métier pour ces opérations** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/services/BankAccountServiceImpl.java)
 
 >_**Tester les opérations CRUD**_
+
 ```java
 @Bean
     CommandLineRunner start (AccountService accountService) {
@@ -399,6 +403,7 @@ public interface BankAccountService {
    ```
    
 > **Teste les endpoints à l'aide d'outils comme Swagger**
+
 ```java
 L'interface de test de notre API, générée par Swagger, est accessible via http://localhost:8081/swagger-ui/index.html
 ```
@@ -421,6 +426,6 @@ L'interface de test de notre API, générée par Swagger, est accessible via htt
 
 > **_les configurations de sécurité de Spring Security_**
 
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="30%"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="40%" align="center"/>
 
 🔗 >[➤ **Security JWT** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/tree/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/security)
