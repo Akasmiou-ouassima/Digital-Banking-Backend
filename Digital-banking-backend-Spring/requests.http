@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:9093/customers/1/accounts
+GET http://localhost:8081/customers/1/accounts
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJZYXNzaW5lIiwicm9sZXMiOlsiQ1VTVE9NRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkzL2xvZ2luIiwiZXhwIjoxNjU0NDM2NDYwfQ.jn0L7qhK1Ll6ag3nNVsvGq-swqVW7vPrTL2ItHIxx1U
 
