@@ -19,42 +19,37 @@
  <li>Tester la couche DAO</li>
 </ul>
 
-**2. Création et test de la couche service :**
+**2. Création et test de la couche service en utilisant les DTO :**
 <ul>
+   <li>Créer des objets DTO (Data Transfer Objects) pour transférer les données entre les couches</li>
   <li>Définir les opérations du service pour ajouter des comptes, ajouter des clients, effectuer des débits, des crédits et des virements, et consulter un compte
 .</li>
  <li>Implémenter la logique métier pour ces opérations </li>
   <li>Tester les opérations CRUD (Create, Read, Update, Delete) pour les entités </li>
 </ul>
 
-**3. Création et test de la couche Web (Rest Controller) :**
+**3. Création et test de la couche Web (Rest Controller) en utilisant les DTO  :**
 <ul>
   <li>Créer les contrôleurs REST pour exposer les fonctionnalités de l'application</li>
  <li>Définir les endpoints REST pour les opérations du service</li>
- <li>Tester les endpoints à l'aide d'outils comme Postman ou Swagger</li>
+ <li>Tester les endpoints à l'aide d'outils comme Swagger</li>
 </ul>
 
-**4. Modification de la couche service et de la couche Web en utilisant les DTO :**
-<ul>
-  <li>Créer des objets DTO (Data Transfer Objects) pour transférer les données entre les couches</li>
- <li>Adapter les services et les contrôleurs pour utiliser les DTO</li>
-</ul>
-
-**5. Création d'un service d'authentification séparé basé sur Spring Security et JWT :**
+**4. Création d'un service d'authentification séparé basé sur Spring Security et JWT :**
 <ul>
   <li>Configurer Spring Security pour gérer l'authentification des utilisateurs</li>
  <li>Utiliser JWT (JSON Web Tokens) pour générer et valider les tokens d'authentification</li>
  <li>Implémenter les endpoints nécessaires pour l'inscription et la connexion des utilisateurs</li>
 </ul>
 
-**6. Sécurisation de l'application Digital Banking en utilisant Spring Security et JWT :**
+**5. Sécurisation de l'application Digital Banking en utilisant Spring Security et JWT :**
 <ul>
   <li>Appliquer les configurations de sécurité de Spring Security pour restreindre l'accès aux ressources de l'application</li>
  <li>Configurer les autorisations en fonction des rôles des utilisateurs</li>
  <li>Tester l'authentification et l'autorisation pour s'assurer du bon fonctionnement de la sécurité</li>
 </ul>
 
-**7. Création de la partie Frontend Web en utilisant Angular :**
+**6. Création de la partie Frontend Web en utilisant Angular :**
 <ul>
   <li>Concevoir et développer les composants Angular pour l'interface utilisateur de l'application</li>
  <li>Intégrer les appels API vers les endpoints REST du backend pour récupérer et modifier les données</li>
@@ -242,6 +237,9 @@ spring.main.allow-circular-references=true
 
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/services.jpg"  />
 
+> **Création des objets DTO**
+
+
 > **Définition les opérations du service**
 
 _**Interface BankAccountService**_
@@ -261,7 +259,8 @@ public interface BankAccountService {
 
   void debit(String accountId, double amount, String description) throws BankAccountNotFoundException, BalanceNotSufficientException;
   void credit(String accountId, double amount, String description) throws BankAccountNotFoundException;
-  void transfer(String accountIdSource, String accountIdDestination, double amount, String description) throws BankAccountNotFoundException, BalanceNotSufficientException;
+
+  void transfer(String accountIdSource, String accountIdDestination, double amount) throws BankAccountNotFoundException, BalanceNotSufficientException;
 
   List<BankAccountDTO> getListBankAccounts();
 
@@ -273,12 +272,62 @@ public interface BankAccountService {
 
   List<AccountOperationDTO> getAccountHistoryByList(String accountId);
 
-    List<BankAccountDTO> getBankAccountsByCustomerId(Long customerId);
+  List<BankAccountDTO> getBankAccountsByCustomerId(Long customerId);
 
-    AccountHistoryDTO getAccountHistoryByPage(String accountId, int page, int size) throws BankAccountNotFoundException;
+  AccountHistoryDTO getAccountHistoryByPage(String accountId, int page, int size) throws BankAccountNotFoundException;
 
   List<CustomerDTO> searchCustomers(String keyword);
 }
 ```
-[➤ **Implémentation de la logique métier pour ces opérations** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/services/BankAccountServiceImpl.java)
+>[➤ **Implémentation de la logique métier pour ces opérations** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/services/BankAccountServiceImpl.java)
 
+>_**Tester les opérations CRUD**_
+```java
+@Bean
+    CommandLineRunner start (AccountService accountService) {
+        return args -> {
+            Stream.of("Ouassima", "Mohamed", "Jinan", "Oualid").forEach(name -> {
+                CustomerDTO customerDTO = new CustomerDTO();
+                customerDTO.setName(name);
+                customerDTO.setEmail(name + "@gmail.com");
+                bankAccountService.saveCustomer(customerDTO);
+            });
+            bankAccountService.listCustomer().forEach( customer -> {
+                try {
+                    bankAccountService.saveCurrentBankAccount(Math.random() * 90000, 9000, customer.getId());
+                    bankAccountService.saveSavingBankAccount(Math.random() * 85000, 3.2, customer.getId());
+                } catch (CustomerNotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            try {
+                List<BankAccountDTO> bankAccountList = bankAccountService.getListBankAccounts();
+                for (BankAccountDTO bankAccount : bankAccountList) {
+                    for (int i = 0; i < 10; i++) {
+                        String accountId;
+                        if(bankAccount instanceof SavingBankAccountDTO) {
+                            accountId = ((SavingBankAccountDTO) bankAccount).getId();
+                        } else {
+                            accountId = ((CurrentBankAccountDTO) bankAccount).getId();
+                        }
+                        bankAccountService.credit(
+                                accountId,
+                                10000 + Math.random() * 120000,
+                                "Credit");
+
+                        bankAccountService.debit(
+                                accountId,
+                                1000 + Math.random() * 9000,
+                                "Debit");
+
+                    }
+                }
+            } catch (BalanceNotSufficientException | BankAccountNotFoundException e) {
+                e.printStackTrace();
+            }
+        };
+    }
+   ```
+   
+> **Tester les endpoints à l'aide d'outils comme Swagger**
