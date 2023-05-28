@@ -4,6 +4,7 @@ import {catchError, map, Observable, throwError} from "rxjs";
 import {Customer} from "../model/customer.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-customers',
@@ -41,15 +42,39 @@ export class CustomersComponent implements OnInit {
     );
   }
 
+
   handleDeleteCustomer(customer: Customer) {
+    Swal.fire({
+      title: 'Are you sure to delete this customer?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.customerService.deleteCustomer(customer.id).subscribe(
+          {
+            next: (resp) => {
+              Swal.fire('Deleted successfully !', '', 'success')
+              this.handleSearchCustomer()
+            },
+            error: (err) => {
+              console.log(err);
+            }
+          }
+        );
+
+      }
+    });
+  }
+
+  /*handleDeleteCustomer(customer: Customer) {
     let confirmDelete = confirm("Are you sure to delete this customer?");
     if(!confirmDelete) return;
     this.customerService.deleteCustomer(customer.id).subscribe({
-      /*  next : (res) => {
-          this.handleSearchCustomer();
-        },*/
       next: (res) => {
         this.customers$ = this.customers$.pipe(
+
           map(data => {
             let index = data.indexOf(customer);
             data.slice(index, 1);
@@ -60,7 +85,7 @@ export class CustomersComponent implements OnInit {
         this.errorDeleteMessage = err.message;
       }
     });
-  }
+  }*/
 
   handleUpdateCustomer(customer: Customer) {
     this.router.navigateByUrl("/update-customer/" + customer.id, {state: customer}).then(r => {

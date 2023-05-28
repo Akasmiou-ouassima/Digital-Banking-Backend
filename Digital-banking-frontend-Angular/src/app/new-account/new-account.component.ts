@@ -5,6 +5,7 @@ import {Customer} from "../model/customer.model";
 import {throwError} from "rxjs";
 import {AccountsService} from "../services/accounts.service";
 import {CurAccount} from "../model/saveAccount.model";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-new-account',
@@ -62,7 +63,13 @@ export class NewAccountComponent implements OnInit {
     } else if(curAccount.type == 'SavingAccount'){
       this.accountServie.newSavingAccount(curAccount.balance, curAccount.interestRate, curAccount.customerDTO.id).subscribe({
         next: data => {
-          alert('A new saving bank account has been added to this customerId:' + this.customerId);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: "A new saving bank account has been added to this customerId"+ this.customerId,
+              showConfirmButton: false,
+              timer: 1500
+            });
           this.newAccountFormGroup.reset();
           this.router.navigateByUrl("customers/" + this.customerId, {state: this.customer}).then(r=>{});
         },

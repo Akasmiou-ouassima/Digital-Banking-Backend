@@ -9,12 +9,12 @@ import {Account} from "../model/customer-accounts.model";
   providedIn: 'root'
 })
 export class CustomerService {
-  //backendHost: string = "http://localhost:8086";
+  //backendHost: string = "http://localhost:8081";
   constructor(private http: HttpClient) { }
 
   public getCustomers(): Observable<Customer[]> {
    return  this.http.get<Customer[]>(environment.backendHost + "/customers");
-   //return  this.http.get<Customer[]>("http://localhost:8086/customer"); //pour les gestions des erreurs, endpoint n'existe pas.
+   //return  this.http.get<Customer[]>("http://localhost:8081/customer"); //pour les gestions des erreurs, endpoint n'existe pas.
   }
 
   public searchCustomers(keyword: string): Observable<Customer[]> {
@@ -24,7 +24,6 @@ export class CustomerService {
   public saveNewCustomer(customer: Customer) {
     return  this.http.post<Customer>(environment.backendHost + "/customers", customer);
   }
-
   public deleteCustomer(id: number) {
     return  this.http.delete(environment.backendHost + "/customers/" + id);
   }

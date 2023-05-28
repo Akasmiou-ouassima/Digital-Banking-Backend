@@ -15,7 +15,10 @@ import { CustomerComponent } from './customer/customer.component';
 import { BankAccountsComponent } from './bank-accounts/bank-accounts.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import {AlertComponent} from "./alert/alert.component";
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { LoginComponent } from './login/login.component';
     BankAccountsComponent,
     NewAccountComponent,
     AlertComponent,
-    LoginComponent,
+    HomeComponent,
+    LoginPageComponent,
+    EditProfilComponent,
   ],
   imports: [
     BrowserModule,

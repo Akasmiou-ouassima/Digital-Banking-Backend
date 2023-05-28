@@ -4,9 +4,7 @@ import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {AccountDetails} from "../model/account.model";
 
-/**
- * générer le modèle : https://app.quicktype.io/?l=ts
- */
+
 @Injectable({
   providedIn: 'root'
 })

@@ -45,22 +45,22 @@
             <td>{{ c.name }}</td>
             <td>{{ c.email}}</td>
             <td>
-              <button (click)="handleDeleteCustomer(c)" class="btn btn-lg ">
-                <i class="bi bi-trash-fill text-danger"></i>
+              <button (click)="handleDeleteCustomer(c)" class="btn btn-md btn-danger">
+                <i class="bi bi-trash-fill text-white"></i>
               </button>
-              <button (click)="handleUpdateCustomer(c)" class="btn btn-lg">
-                <i class="bi bi-pencil-fill text-primary "></i>
+              <button (click)="handleUpdateCustomer(c)" class="btn btn-md btn-primary ms-2">
+                <i class="bi bi-pencil-fill text-white"></i>
               </button>
             </td>
             <td>
-              <button (click)="handleCustomerAccounts(c)" class="btn btn-lg">
-                <i class="bi bi-box-arrow-in-right text-info"></i>
+              <button (click)="handleCustomerAccounts(c)" class="btn btn-md btn-info">
+                <i class="bi bi-box-arrow-in-right text-white"></i>
               </button>
             </td>
 
             <td>
-              <button (click)="handleAddNewAccount(c)" class="btn btn-lg">
-                <i class="bi bi-plus-circle-fill text-success"></i>
+              <button (click)="handleAddNewAccount(c)" class="btn btn-md btn-success">
+                <i class="bi bi-plus-lg text-white "></i>
               </button>
             </td>
           </tr>

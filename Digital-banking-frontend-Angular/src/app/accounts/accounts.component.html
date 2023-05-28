@@ -65,7 +65,7 @@
             </ul>
           </ng-container>
           <ng-template #errorTemplate>
-            <ng-container *ngIf="errorAccountMessage; else loading">
+            <ng-container *ngIf="errorAccountMessage">
               <app-alert
                 [alertMessage]="'Account not found'"
                 [alertType]="0"

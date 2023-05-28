@@ -11,7 +11,7 @@
             <th>Creation Date</th>
             <th>Status</th>
             <th>Type</th>
-            <th>Customer ID</th>
+            <th>Customer Name</th>
           </tr>
           </thead>
           <tbody>
@@ -26,14 +26,14 @@
            {{ account.type }}
           </span>
             </td>
-            <td class="text-center"  style="font-weight: bolder" (click)="handleCustomerPageFromBankAccounts(account.customerDTO)">
-             {{account.customerDTO.id}}</td>
+            <td class="text"  (click)="handleCustomerPageFromBankAccounts(account.customerDTO)">
+             {{account.customerDTO.name}}</td>
           </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div class="text-start text-capitalize text-info fs-4"><a routerLink="customers">
+    <div class="text-start text-capitalize text-info fs-4"><a routerLink="/customers">
       <i class="bi bi-arrow-left-square-fill"></i>
     </a></div>
   </ng-container>

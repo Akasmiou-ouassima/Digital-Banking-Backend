@@ -4,6 +4,7 @@ import {Customer} from "../model/customer.model";
 import {CustomerService} from "../services/customer.service";
 import {throwError} from "rxjs";
 import {Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-new-customer',
@@ -30,7 +31,13 @@ export class NewCustomerComponent implements OnInit {
     let customer: Customer = this.newCustomerFormGroup?.value;
     this.customerService.saveNewCustomer(customer).subscribe({
       next: data => {
-        alert('New Customer has been successfully saved!');
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: "New Customer has been successfully saved!",
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.newCustomerFormGroup?.reset();
         this.router.navigateByUrl("/customers").then(r => {});
       },
