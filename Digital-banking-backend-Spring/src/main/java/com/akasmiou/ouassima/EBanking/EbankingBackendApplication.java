@@ -49,16 +49,16 @@ public class EbankingBackendApplication {
             accountService.addNewRole(new AppRole(null, "ADMIN"));
             accountService.addNewRole(new AppRole(null, "CUSTOMER"));
 
-            accountService.addNewUser(new AppUser(null, "ouassima", "1234", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "admin", "1234", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "mohamed", "1234", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Ouassima", "202321", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "admin", "141516", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Mohamed", "63749", new ArrayList<>()));
 
-            accountService.addRoleToUser("ouassima", "CUSTOMER");
+            accountService.addRoleToUser("Ouassima", "CUSTOMER");
             accountService.addRoleToUser("admin", "ADMIN");
-            accountService.addRoleToUser("mohamed", "CUSTOMER");
+            accountService.addRoleToUser("Mohamed", "CUSTOMER");
 
 
-            Stream.of("Polat", "Ibrahim", "Gulqiz", "Aygul").forEach(name -> {
+            Stream.of("Ouassima", "Mohamed", "Jinan", "Oualid").forEach(name -> {
                 CustomerDTO customerDTO = new CustomerDTO();
                 customerDTO.setName(name);
                 customerDTO.setEmail(name + "@gmail.com");
@@ -86,12 +86,12 @@ public class EbankingBackendApplication {
                         bankAccountService.credit(
                                 accountId,
                                 10000 + Math.random() * 120000,
-                                "First Credit");
+                                "Credit");
 
                         bankAccountService.debit(
                                 accountId,
                                 1000 + Math.random() * 9000,
-                                "First Debit");
+                                "Debit");
 
                     }
                 }
@@ -107,7 +107,7 @@ public class EbankingBackendApplication {
                             BankAccountRepository bankAccountRepository,
                             AccountOperationRepository accountOperationRepository) {
         return args -> {
-            Stream.of("Alim", "Memet", "Guzel").forEach(name -> {
+            Stream.of("Ouassima", "Oualid", "Mohamed").forEach(name -> {
                 Customer customer = new Customer();
                 customer.setName(name);
                 customer.setEmail(name +"@gmail.com");
@@ -120,7 +120,7 @@ public class EbankingBackendApplication {
                 currentAccount.setCreatedDate(new Date());
                 currentAccount.setStatus(AccountStatus.CREATED);
                 currentAccount.setCustomer(customer);
-                currentAccount.setOverDraft(8000);
+                currentAccount.setOverDraft(9000);
                 bankAccountRepository.save(currentAccount);
 
                 SavingAccount savingAccount = new SavingAccount();
@@ -138,7 +138,7 @@ public class EbankingBackendApplication {
                 for (int i = 0; i < 10; i++) {
                     AccountOperation accountOperation = new AccountOperation();
                     accountOperation.setOperationDate(new Date());
-                    accountOperation.setAmount(Math.random() * 12000);
+                    accountOperation.setAmount(Math.random() * 13000);
                     accountOperation.setOperationType(Math.random() > 0.5 ? OperationType.DEBIT : OperationType.CREDIT);
                     accountOperation.setBankAccount(account);
                     accountOperationRepository.save(accountOperation);
