@@ -239,7 +239,69 @@ spring.main.allow-circular-references=true
 
 > **Création des objets DTO**
 
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Dtos.jpg"  />
 
+> **Création des mappers**
+```java
+@Service
+@Transactional
+public class BankAccountMapperImpl {
+
+    public CustomerDTO fromCustomer(Customer customer) {
+        CustomerDTO customerDTO = new CustomerDTO();
+        BeanUtils.copyProperties(customer, customerDTO);
+        return customerDTO;
+    }
+    public Customer fromCustomerDTO(CustomerDTO customerDTO) {
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDTO, customer);
+
+        return customer;
+    }
+
+    public CurrentBankAccountDTO fromCurrentBankAccount (CurrentAccount currentAccount) {
+        CurrentBankAccountDTO currentBankAccountDTO = new CurrentBankAccountDTO();
+        BeanUtils.copyProperties(currentAccount, currentBankAccountDTO);
+
+        currentBankAccountDTO.setCustomerDTO(fromCustomer(currentAccount.getCustomer()));
+        currentBankAccountDTO.setType(currentAccount.getClass().getSimpleName());
+
+        return currentBankAccountDTO;
+    }
+    public CurrentAccount fromCurrentAccountDTO (CurrentBankAccountDTO currentBankAccountDTO) {
+        CurrentAccount currentAccount = new CurrentAccount();
+        BeanUtils.copyProperties(currentBankAccountDTO, currentAccount);
+
+        currentAccount.setCustomer(fromCustomerDTO(currentBankAccountDTO.getCustomerDTO()));
+        return currentAccount;
+    }
+
+    public SavingBankAccountDTO fromSavingBankAccount (SavingAccount savingAccount) {
+        SavingBankAccountDTO savingBankAccountDTO = new SavingBankAccountDTO();
+        BeanUtils.copyProperties(savingAccount, savingBankAccountDTO);
+
+        savingBankAccountDTO.setCustomerDTO(fromCustomer(savingAccount.getCustomer()));
+        savingBankAccountDTO.setType(savingAccount.getClass().getSimpleName());
+        return savingBankAccountDTO;
+    }
+    public SavingAccount fromSavingBankAccountDTO (SavingBankAccountDTO savingBankAccountDTO) {
+        SavingAccount savingAccount = new SavingAccount();
+
+        BeanUtils.copyProperties(savingBankAccountDTO, savingAccount);
+
+        savingAccount.setCustomer(fromCustomerDTO(savingBankAccountDTO.getCustomerDTO()));
+
+        return savingAccount;
+    }
+
+    public AccountOperationDTO fromAccountOperation(AccountOperation accountOperation) {
+        AccountOperationDTO accountOperationDTO = new AccountOperationDTO();
+        BeanUtils.copyProperties(accountOperation, accountOperationDTO);
+
+        return accountOperationDTO;
+    }
+}
+ ```
 > **Définition les opérations du service**
 
 _**Interface BankAccountService**_
@@ -331,3 +393,6 @@ public interface BankAccountService {
    ```
    
 > **Tester les endpoints à l'aide d'outils comme Swagger**
+```java
+L'interface de test de notre API, générée par Swagger, est accessible via http://localhost:8081/swagger-ui/index.html
+```
