@@ -1,5 +1,6 @@
-|       Digital-Banking-Project           |
-| --------------------------------------- |
+<img src="icon.png" align="right" />
+#### Digital-Banking-Project           
+
 
 ## Diagramme de cas d'utilisation du projet Digital banking
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/Diagramme%20de%20classe%20digital%20banking.jpg">
@@ -64,5 +65,74 @@ Le travail à effectuer consiste à développer une application Web basée sur S
   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/architecture1.jpg" alt="image1" style="margin-top:1px;" width="45%">
   
 </div>
+
+#### Couche DAO
+> Les entités JPA : Customer, BankAccount, Saving Account, CurrentAccount, AccountOperation
+ _Customer_
+```@Entity
+@Data @NoArgsConstructor @AllArgsConstructor
+public class Customer {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String email;
+    @OneToMany(mappedBy = "customer")
+    private List<BankAccount> bankAccounts;
+}
+```
+ _BankAccount_
+```@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", length = 30, discriminatorType = DiscriminatorType.STRING) // length 255 par défaut et String
+@Data @NoArgsConstructor @AllArgsConstructor
+public abstract class BankAccount {
+ @Id
+    private String id;
+    private double balance;
+    private Date createdDate;
+    @Enumerated(EnumType.STRING)
+    private AccountStatus status;
+    @ManyToOne
+    private Customer customer;
+    @OneToMany (mappedBy = "bankAccount")
+    private List<AccountOperation> accountOperations;
+
+}
+```
+_Saving Account_
+```@Entity
+@DiscriminatorValue("Saving_Account")
+@Data @NoArgsConstructor @AllArgsConstructor
+public class SavingAccount extends BankAccount{
+    private double interestRate;
+}
+```
+_CurrentAccount_
+```@Entity
+@DiscriminatorValue("Current_Account")
+@Data @NoArgsConstructor @AllArgsConstructor
+public class CurrentAccount extends BankAccount{
+    private double overDraft;
+
+}
+```
+_AccountOperation_
+```@Entity
+@Data @NoArgsConstructor @AllArgsConstructor
+public class AccountOperation {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Date operationDate;
+    private double amount;
+    @Enumerated(EnumType.STRING)
+    private OperationType operationType;
+    @ManyToOne
+    private BankAccount bankAccount;
+    private String description;
+}
+```
 
 
