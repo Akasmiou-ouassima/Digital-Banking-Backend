@@ -1,11 +1,11 @@
 <img src="icon.png" align="right" />
-#### Digital-Banking-Project           
 
+ ## Digital-Banking-Project 🔗 
+ 
+>**Le travail à effectuer consiste à développer une application Web basée sur Spring et Angular pour la gestion de comptes bancaires.**
 
 ## Diagramme de cas d'utilisation du projet Digital banking
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/Diagramme%20de%20classe%20digital%20banking.jpg">
-
-Le travail à effectuer consiste à développer une application Web basée sur Spring et Angular pour la gestion de comptes bancaires. Voici les différentes tâches à réaliser pour la première partie du projet :
 
 **1. Création et test de la couche DAO :**
 <ul>
@@ -56,7 +56,7 @@ Le travail à effectuer consiste à développer une application Web basée sur S
   <li>Tester l'interface utilisateur et s'assurer de son bon fonctionnement.</li>
 </ul>
 
-**Ces étapes vous permettront de mettre en place les différentes couches de l'application, de tester leur fonctionnement et de sécuriser l'application en utilisant Spring Security et JWT. Vous pourrez ainsi créer une application complète de gestion de comptes bancaires avec une interface utilisateur conviviale basée sur Angular.**
+
 
   ## Architecture du projet
 <div>
