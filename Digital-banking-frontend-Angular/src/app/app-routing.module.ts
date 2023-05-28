@@ -13,7 +13,7 @@ import {LoginPageComponent} from "./login-page/login-page.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {MainGuard} from "./guards/main-guard.service";
 import {EditProfilComponent} from "./edit-profil/edit-profil.component"
-
+import {AboutComponent} from "./about/about.component";
 /*const routes: Routes = [
   { path: "customers", component: CustomersComponent },
   { path: "accounts", component: AccountsComponent },
@@ -75,6 +75,9 @@ const routes: Routes = [
   {
     path: "edit-profil/:id", component: EditProfilComponent, canActivate: [MainGuard],
     canLoad: [MainGuard]
+  },
+  {
+    path: "about", component: AboutComponent,
   },
 
 ];

@@ -18,6 +18,7 @@ import {AlertComponent} from "./alert/alert.component";
 import { HomeComponent } from './home/home.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -37,6 +38,7 @@ import { EditProfilComponent } from './edit-profil/edit-profil.component';
     HomeComponent,
     LoginPageComponent,
     EditProfilComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

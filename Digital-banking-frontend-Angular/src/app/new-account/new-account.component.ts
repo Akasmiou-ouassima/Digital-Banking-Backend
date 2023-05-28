@@ -50,7 +50,14 @@ export class NewAccountComponent implements OnInit {
     if(curAccount.type == 'CurrentAccount') {
       this.accountServie.newCurrentAccount(curAccount.balance, curAccount.overDraft, curAccount.customerDTO.id).subscribe({
         next: data => {
-          alert('A new current bank account has been added to this customerId:' + this.customerId);
+
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'A new current bank account has been added to this customerId: ' + this.customerId,
+            showConfirmButton: false,
+            timer: 1500
+          });
           this.newAccountFormGroup.reset();
           //this.router.navigateByUrl("customers/" + this.customer, {state: this.customer}).then(r=>{});
           this.router.navigateByUrl("customers");
