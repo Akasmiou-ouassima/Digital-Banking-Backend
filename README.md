@@ -66,6 +66,7 @@
   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/architecture1.jpg" alt="image1" style="margin-top:1px;" width="45%">
   
 </div>
+
 ### Stratégie adopter
 
 >**Dans notre approche de gestion de l'héritage, une stratégie que nous avons utilisée est celle de la _"Single table"_. Avec cette approche, nous avons créé une seule table qui contient tous les attributs des trois classes concernées. Pour différencier les deux sous-types, nous avons ajouté une colonne spéciale appelée "colonne discriminante". Cette colonne nous permet de distinguer les instances appartenant aux différentes sous-classes au sein de la table unique.**
@@ -228,7 +229,7 @@ server.port=8081
 spring.main.allow-circular-references=true
 ```
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/Customers.jpg" align="center" style="margin-top:1px;" width="40%"/>
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/bank-accounts.jpg" align="center"  style="margin-top:1px;" width="90%"/>
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/account-operations.jpg" align="center" style="margin-top:1px;"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/bank-accounts.jpg" align="center"  style="margin-top:1px;" width="60%"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/account-operations.jpg" align="center" style="margin-top:1px;" width="60%"/>
 
 
