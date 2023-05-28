@@ -402,8 +402,25 @@ public interface BankAccountService {
 ```java
 L'interface de test de notre API, générée par Swagger, est accessible via http://localhost:8081/swagger-ui/index.html
 ```
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/swagger1.jpg" />
+
+
+**_Teste de la méthode GET Customers_**
+
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/getcustomers-swagger.jpg" />
+
+**_Teste de la méthode GET Customer By Id_**
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/getcustomerbyid.jpg" />
+
+**_Teste de la méthode GET Accounts_**
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/getaccounts.jpg" />
 
 ### Couche Security
 
+>La classe SecurityConfig configure la sécurité dans une application Java avec Spring Security. Les principales étapes incluent la désactivation de CSRF, la configuration de la politique >de sessions, la gestion de CORS, l'autorisation d'accès à certaines URL et l'ajout de filtres JWT personnalisés pour l'authentification et l'autorisation.
+
 > **_les configurations de sécurité de Spring Security_**
 
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="30%"/>
+
+🔗 >[➤ **Security JWT** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/tree/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/security)
