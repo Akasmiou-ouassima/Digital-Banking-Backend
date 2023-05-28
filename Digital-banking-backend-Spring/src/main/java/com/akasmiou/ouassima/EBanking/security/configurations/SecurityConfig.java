@@ -39,7 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.cors();
         http.headers().frameOptions().disable();
-        http.authorizeRequests().antMatchers("/h2-console/**","/refreshToken/**","/login/**").permitAll();
+        http.authorizeRequests().antMatchers("/h2-console/**","/refreshToken/**","/login/**","/swagger-ui**",
+                "/swagger-ui/**","/v3/**", "/v1/**").permitAll();
         http.addFilter(new JwtAuthenticationFilter(authenticationManagerBean(), appUserRepository));
         http.addFilterBefore(new JwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

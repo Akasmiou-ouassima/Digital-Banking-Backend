@@ -21,6 +21,8 @@ import com.akasmiou.ouassima.EBanking.security.entities.AppRole;
 import com.akasmiou.ouassima.EBanking.security.entities.AppUser;
 import com.akasmiou.ouassima.EBanking.security.services.AccountService;
 import com.akasmiou.ouassima.EBanking.services.BankAccountService;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -39,6 +41,7 @@ import java.util.stream.Stream;
 
 
 @SpringBootApplication
+@SecurityScheme(name = "digitalBanking", description = "Digital Banking API", type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
 public class EbankingBackendApplication {
     public static void main(String[] args) {
         SpringApplication.run(EbankingBackendApplication.class, args);

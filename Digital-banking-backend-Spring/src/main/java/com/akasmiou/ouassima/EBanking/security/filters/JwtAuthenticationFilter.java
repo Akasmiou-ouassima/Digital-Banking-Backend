@@ -80,8 +80,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         idToken.put("roles",user.getAuthorities().stream().map(ga->ga.getAuthority()).collect(Collectors.toList()).toString());
         if (user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()).toString().contains("CUSTOMER")) {
            System.out.println(user.getUsername());
-            //idToken.put("id", String.valueOf(appUserRepository.findAppUserByUsername(user.getUsername().trim()).getId()));
-            idToken.put("id", String.valueOf(1));
+           idToken.put("id", String.valueOf(1));
 
         }
         response.setContentType("application/json");
