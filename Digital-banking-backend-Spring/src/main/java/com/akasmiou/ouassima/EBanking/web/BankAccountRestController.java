@@ -7,6 +7,7 @@ import com.akasmiou.ouassima.EBanking.exceptions.BankAccountNotFoundException;
 import com.akasmiou.ouassima.EBanking.exceptions.CustomerNotFoundException;
 import com.akasmiou.ouassima.EBanking.services.BankAccountService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,13 +22,13 @@ public class BankAccountRestController {
     public BankAccountRestController(BankAccountService bankAccountService) {
         this.bankAccountService = bankAccountService;
     }
-
+    @PostAuthorize("hasAuthority('ADMIN') or hasAuthority('CUSTOMER')")
     @GetMapping("/accounts/{id}")
     public BankAccountDTO getBankAccount(@PathVariable String id) throws BankAccountNotFoundException {
         log.info("BankAccountDTO is returned");
         return bankAccountService.getBankAccount(id);
     }
-
+    @PostAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/accounts")
     public List<BankAccountDTO> getListBankAccounts() {
         return bankAccountService.getListBankAccounts();
@@ -37,7 +38,7 @@ public class BankAccountRestController {
     public List<AccountOperationDTO> getHistoryByList(@PathVariable String accountId) {
         return bankAccountService.getAccountHistoryByList(accountId);
     }
-
+    @PostAuthorize("hasAuthority('ADMIN') or hasAuthority('CUSTOMER')")
     @GetMapping("/accounts/{accountId}/pageOperations")
     public AccountHistoryDTO getAccountHistoryByPage(
             @PathVariable String accountId,
@@ -66,12 +67,13 @@ public class BankAccountRestController {
 
         return bankAccountService.saveSavingBankAccount(initialBalance, interestRate, customerId);
     }
-
+    @PostAuthorize("hasAuthority('ADMIN') or hasAuthority('CUSTOMER')")
     @PutMapping("/accounts/{accountId}")
     public BankAccountDTO updateBankAccount(@PathVariable String accountId, @RequestParam AccountStatus accountStatus) throws BankAccountNotFoundException {
         log.info("Update a bank account return with the account type");
         return bankAccountService.updateBankAccount(accountId, accountStatus);
     }
+    @PostAuthorize("hasAuthority('ADMIN') or hasAuthority('CUSTOMER')")
     @PostMapping("/accounts/debit")
     public DebitDTO debit(@RequestBody DebitDTO debitDTO) throws BankAccountNotFoundException, BalanceNotSufficientException {
         log.info("Debit is successful");
@@ -82,7 +84,7 @@ public class BankAccountRestController {
 
         return debitDTO;
     }
-
+    @PostAuthorize("hasAuthority('ADMIN') or hasAuthority('CUSTOMER')")
     @PostMapping("/accounts/credit")
     public CreditDTO credit(@RequestBody CreditDTO creditDTO) throws BankAccountNotFoundException, BalanceNotSufficientException {
         log.info("Credit is successful");
@@ -92,17 +94,12 @@ public class BankAccountRestController {
                 creditDTO.getDescription());
         return creditDTO;
     }
-
+    @PostAuthorize("hasAuthority('ADMIN') or hasAuthority('CUSTOMER')")
     @PostMapping("/accounts/transfer")
     public void transfer(@RequestBody TransferRequestDTO transferRequestDTO) throws BankAccountNotFoundException, BalanceNotSufficientException {
-        log.info("Transfer is successful between theses bankAccounts sourceId: "
-                + transferRequestDTO.getAccountSource() + " and targetId: " + transferRequestDTO.getAccountTarget());
-        bankAccountService.transfer(
-                transferRequestDTO.getAccountSource(),
-                transferRequestDTO.getAccountTarget(),
-                transferRequestDTO.getAmount(),
-                transferRequestDTO.getDescription());
+        this.bankAccountService.transfer(transferRequestDTO.getAccountTarget(), transferRequestDTO.getAccountSource(), transferRequestDTO.getAmount());
     }
+    @PostAuthorize("hasAuthority('ADMIN') or hasAuthority('CUSTOMER')")
     @GetMapping("/customers/{customerId}/accounts")
     public List<BankAccountDTO> getBankAccountsByCustomerId(@PathVariable Long customerId) {
         List<BankAccountDTO> bankAccountDTOS = bankAccountService.getBankAccountsByCustomerId(customerId);

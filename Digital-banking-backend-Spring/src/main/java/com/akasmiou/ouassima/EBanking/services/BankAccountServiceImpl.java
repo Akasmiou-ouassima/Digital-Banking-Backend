@@ -169,13 +169,18 @@ public class BankAccountServiceImpl implements BankAccountService{
 
         bankAccountRepository.save(bankAccount);
     }
-
     @Override
-    public void transfer (
-            String accountIdSource, String accountIdDestination, double amount, String description) throws BankAccountNotFoundException, BalanceNotSufficientException {
-        debit(accountIdSource, amount, description);
-        credit(accountIdDestination, amount, description);
+    public void transfer(String accountIdSource, String accountIdDestination, double amount) throws BalanceNotSufficientException, BankAccountNotFoundException {
+        AccountOperationDTO accountSourceOperationDTO = new AccountOperationDTO();
+        accountSourceOperationDTO.setAccountId(accountIdSource);
+        accountSourceOperationDTO.setAmount(amount);
+        debit(accountIdSource,amount,"description");
+        AccountOperationDTO accountDestOperationDTO = new AccountOperationDTO();
+        accountDestOperationDTO.setAccountId(accountIdDestination);
+        accountDestOperationDTO.setAmount(amount);
+        credit(accountIdDestination,amount,"description");
     }
+
 
     @Override
     public List<BankAccountDTO> getListBankAccounts() {
