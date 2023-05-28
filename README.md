@@ -49,15 +49,6 @@
  <li>Tester l'authentification et l'autorisation pour s'assurer du bon fonctionnement de la sécurité</li>
 </ul>
 
-**6. Création de la partie Frontend Web en utilisant Angular :**
-<ul>
-  <li>Concevoir et développer les composants Angular pour l'interface utilisateur de l'application</li>
- <li>Intégrer les appels API vers les endpoints REST du backend pour récupérer et modifier les données</li>
- <li>Implémenter les fonctionnalités de gestion des comptes bancaires, d'authentification et de sécurité</li>
-  <li>Tester l'interface utilisateur et s'assurer de son bon fonctionnement.</li>
-</ul>
-
-
 
   ## Architecture du projet
 <div>
@@ -239,8 +230,23 @@ spring.main.allow-circular-references=true
 
 > **Création des objets DTO**
 
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Dtos.jpg"  />
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Dtos.jpg" />
 
+<div class="image-container" >
+     <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/customerdto.jpg" width="20%" />
+   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/bankaccountdto.jpg"  width="20%" />
+</div>
+
+<div class="image-container" >
+   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/cureentdto.jpg" width="20%" />
+    <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Savingdto.jpg" width="20%" />
+    <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/accounthistorydto.jpg" width="20%" />
+ </div>
+
+<div class="image-container" >
+ <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/operationsdto.jpg"  width="20%"/>
+ <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/accountopdto.jpg" />
+</div>
 > **Création des mappers**
 ```java
 @Service
@@ -392,7 +398,12 @@ public interface BankAccountService {
     }
    ```
    
-> **Tester les endpoints à l'aide d'outils comme Swagger**
+> **Teste les endpoints à l'aide d'outils comme Swagger**
 ```java
 L'interface de test de notre API, générée par Swagger, est accessible via http://localhost:8081/swagger-ui/index.html
 ```
+
+### Couche Security
+
+> **_les configurations de sécurité de Spring Security_**
+
