@@ -350,7 +350,7 @@ public interface BankAccountService {
   List<CustomerDTO> searchCustomers(String keyword);
 }
 ```
->[➤ **Implémentation de la logique métier pour ces opérations** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/services/BankAccountServiceImpl.java)
+🔗[➤ **Implémentation de la logique métier pour ces opérations** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/services/BankAccountServiceImpl.java)
 
 >_**Tester les opérations CRUD**_
 
@@ -426,6 +426,6 @@ L'interface de test de notre API, générée par Swagger, est accessible via htt
 
 > **_les configurations de sécurité de Spring Security_**
 
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="40%" align="center"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="40%"/>
 
-🔗 >[➤ **Security JWT** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/tree/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/security)
+🔗 [➤ **Security JWT** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/tree/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/security)
