@@ -1,8 +1,14 @@
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/icon.png" align="right" />
 
  ## 🔗  Digital-Banking-Project
- 
+
+
 >**Le travail à effectuer consiste à développer une application Web basée sur Spring et Angular pour la gestion de comptes bancaires.**
+ 
+ **Les technologies suivantes seront utilisées dans ce dépôt :**
+- [x] Backend : Spring
+- [x] Frontend : Angular
+- [x] SGBD : MySQL
 
 ## Diagramme de cas d'utilisation du projet Digital banking
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/Diagramme%20de%20classe%20digital%20banking.jpg">
@@ -231,5 +237,45 @@ spring.main.allow-circular-references=true
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/Customers.jpg" align="center" style="margin-top:1px;" width="40%"/>
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/bank-accounts.jpg" align="center"  style="margin-top:1px;" width="60%"/>
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/account-operations.jpg" align="center" style="margin-top:1px;" width="60%"/>
+
+
+### Couche Service
+> **Définir les opérations du service**
+_Interface BankAccountService_
+```java
+public interface BankAccountService {
+
+  CustomerDTO saveCustomer(CustomerDTO customerDTO);
+
+  CurrentBankAccountDTO saveCurrentBankAccount(double initialBalance, double overDraft, Long customerId) throws CustomerNotFoundException;
+  SavingBankAccountDTO saveSavingBankAccount(double initialBalance, double interestRate, Long customerId) throws CustomerNotFoundException;
+
+  BankAccountDTO updateBankAccount(String accountId, AccountStatus accountStatus) throws BankAccountNotFoundException;
+
+  List<CustomerDTO> listCustomer();
+
+  BankAccountDTO getBankAccount(String id) throws BankAccountNotFoundException;
+
+  void debit(String accountId, double amount, String description) throws BankAccountNotFoundException, BalanceNotSufficientException;
+  void credit(String accountId, double amount, String description) throws BankAccountNotFoundException;
+  void transfer(String accountIdSource, String accountIdDestination, double amount, String description) throws BankAccountNotFoundException, BalanceNotSufficientException;
+
+  List<BankAccountDTO> getListBankAccounts();
+
+  CustomerDTO getCustomer(Long customerId) throws CustomerNotFoundException;
+
+  CustomerDTO updateCustomer(CustomerDTO customerDTO);
+
+  void deleteCustomer(Long customerId) throws CustomerNotFoundException;
+
+  List<AccountOperationDTO> getAccountHistoryByList(String accountId);
+
+    List<BankAccountDTO> getBankAccountsByCustomerId(Long customerId);
+
+    AccountHistoryDTO getAccountHistoryByPage(String accountId, int page, int size) throws BankAccountNotFoundException;
+
+  List<CustomerDTO> searchCustomers(String keyword);
+}
+```
 
 
