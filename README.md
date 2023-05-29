@@ -236,11 +236,12 @@ spring.main.allow-circular-references=true
 </div>
 
 _**Customer DTO**_,  _**Bank Account DTO**_, _**Cusrrent Account DTO**_, _**Saving Account DTO**_, _**Account OPerations DTO**_, _**Account History DTO**_
-    <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/dtos1.jpg" />
-    
+  <div align="center">
+  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/dtos1.jpg" />
+   </div>
     
 _**Operations DTOS**_
-<div>
+<div align="center">
  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/operationsdto.jpg" />
  </div>
 
