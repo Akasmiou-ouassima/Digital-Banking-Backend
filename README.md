@@ -430,14 +430,15 @@ L'interface de test de notre API, générée par Swagger, est accessible via htt
 @SecurityScheme(name = "digitalBankApi", description = "Digital Bank API", type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
 ```
 <div align="center">
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/auth1.png" width="60%"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/auth3.jpg" width="60%"/>
  </div>
 <div align="center">
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/auth2.png" width="60%"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/auth1.jpg" width="60%"/>
  </div>
 <div align="center">
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/auth3.png" width="60%"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/auth2.jpg" width="60%"/>
  </div>
+
 
 > **_les configurations de sécurité de Spring Security_**
 <div align="center">
