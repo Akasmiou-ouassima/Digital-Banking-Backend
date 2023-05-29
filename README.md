@@ -237,8 +237,9 @@ _**Customer DTO**_,  _**Bank Account DTO**_, _**Cusrrent Account DTO**_, _**Savi
     
     
 _**Operations DTOS**_
+<div>
  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/operationsdto.jpg" />
- 
+ </div>
 
 
 > **Création des mappers**
