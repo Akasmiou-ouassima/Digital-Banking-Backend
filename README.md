@@ -219,18 +219,21 @@ spring.jpa.show-sql=false
 server.port=8081
 spring.main.allow-circular-references=true
 ```
+<div align="center">
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/Customers.jpg" align="center" style="margin-top:1px;" width="40%"/>
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/bank-accounts.jpg" align="center"  style="margin-top:1px;" width="60%"/>
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Project/blob/main/Les%20images/account-operations.jpg" align="center" style="margin-top:1px;" width="60%"/>
-
+</div>
 
 ### Couche Service
-
+<div align="center">
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/services.jpg"  />
-
+</div>
 > **Création des objets DTO**
 
+<div align="center">
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Dtos.jpg" />
+</div>
 
 _**Customer DTO**_,  _**Bank Account DTO**_, _**Cusrrent Account DTO**_, _**Saving Account DTO**_, _**Account OPerations DTO**_, _**Account History DTO**_
     <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/dtos1.jpg" />
