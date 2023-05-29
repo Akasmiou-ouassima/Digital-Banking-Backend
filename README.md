@@ -423,6 +423,7 @@ L'interface de test de notre API, générée par Swagger, est accessible via htt
 >La classe SecurityConfig configure la sécurité dans une application Java avec Spring Security. Les principales étapes incluent la désactivation de CSRF, la configuration de la politique >de sessions, la gestion de CORS, l'autorisation d'accès à certaines URL et l'ajout de filtres JWT personnalisés pour l'authentification et l'autorisation.
 
 > **_Security dans OpenAPI_**
+
 > Si vous accédez à Swagger UI et que vous voyez le bouton "Authorize", cela signifie que l'API que vous consultez nécessite une authentification. Pour vous authentifier et autoriser votre application
 > Donc L'annotation @SecurityScheme est utilisée pour définir un schéma d'authentification dans le contexte de l'API Digital Bank. 
 
