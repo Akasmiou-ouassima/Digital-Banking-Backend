@@ -424,7 +424,7 @@ L'interface de test de notre API, générée par Swagger, est accessible via htt
 
 > **_les configurations de sécurité de Spring Security_**
 <div align="center">
-<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="40%"/>
+<img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="60%"/>
  </div>
 
 🔗 [➤ **Security JWT** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/tree/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/security)
