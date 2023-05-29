@@ -233,17 +233,23 @@ spring.main.allow-circular-references=true
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Dtos.jpg" />
 
 _**Customer DTO**_
-     <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/customerdto.jpg" width="20%" />
+     <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/customerdto.jpg" />
+     
  _**Bank Account DTO**_
-   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/bankaccountdto.jpg"  width="20%" />
+   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/bankaccountdto.jpg"   />
+   
 _**Cusrrent Account DTO**_
-   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/cureentdto.jpg" width="20%" />
+   <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/cureentdto.jpg"  />
+   
  _**Saving Account DTO**_
-    <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Savingdto.jpg" width="20%" />
+    <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/Savingdto.jpg"  />
+    
  _**Account History DTO**_
-    <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/accounthistorydto.jpg" width="20%" />
+    <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/accounthistorydto.jpg" />
+    
 _**Operations DTOS**_
- <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/operationsdto.jpg"  width="20%"/>
+ <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/operationsdto.jpg" />
+ 
  _**Account OPerations DTO**_
  <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/accountopdto.jpg" />
 
