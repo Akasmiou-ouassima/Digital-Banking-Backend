@@ -419,7 +419,8 @@ L'interface de test de notre API, générée par Swagger, est accessible via htt
 >La classe SecurityConfig configure la sécurité dans une application Java avec Spring Security. Les principales étapes incluent la désactivation de CSRF, la configuration de la politique >de sessions, la gestion de CORS, l'autorisation d'accès à certaines URL et l'ajout de filtres JWT personnalisés pour l'authentification et l'autorisation.
 
 > **_les configurations de sécurité de Spring Security_**
-
+<div align="center">
 <img src="https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/blob/main/Les%20images/security-config.png" width="40%"/>
+ </div>
 
 🔗 [➤ **Security JWT** ](https://github.com/Akasmiou-ouassima/Digital-Banking-Backend/tree/main/Digital-banking-backend-Spring/src/main/java/com/akasmiou/ouassima/EBanking/security)
